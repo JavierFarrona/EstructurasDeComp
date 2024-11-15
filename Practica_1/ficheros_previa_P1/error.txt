@@ -1,0 +1,13 @@
+module ul4(output reg [3:0] Out, input wire [3:0] A, input wire [3:0] B, input wire [1:0] S);
+
+    always @(*) begin
+        case(S)
+            2'b00: Out = A & B;    // AND operation
+            2'b01: Out = A | B;    // OR operation
+            2'b10: Out = A ^ B;    // XOR operation
+            2'b11: Out = ~(A | B); // NOR operation
+            default: Out = 4'b0000; // Default to 0
+        endcase
+    end
+    
+endmodule
